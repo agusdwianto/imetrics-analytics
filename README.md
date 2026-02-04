@@ -3,7 +3,6 @@
 **I-Metrics** (Innovation Metrics) is a high-performance, orbital research impact widget designed to track and visualize scholarly engagement in real-time. Built by **PT. Inovasi Analisis Data**, it offers a futuristic alternative to traditional static metrics.
 
 ---
-
 ## 🌟 The Vision
 In the modern academic landscape, impact is more than just a number—it’s an energy. Our signature **Orbital Design** captures this energy through a dynamic rainbow-glow interface, ensuring your journal's metrics are as innovative as the research they represent.
 
