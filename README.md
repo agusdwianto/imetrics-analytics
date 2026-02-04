@@ -42,3 +42,4 @@ We are a premier provider of academic publishing solutions, specializing in:
 
 ---
 *© 2026 PT. Inovasi Analisis Data. All rights reserved.*
+v1.0 Live
