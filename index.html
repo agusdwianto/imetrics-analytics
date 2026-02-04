@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I-Metrics Professional Widget</title>
+    <style>
+        :root {
+            --bg-dark: #111827;
+            --i-blue: #0ea5e9;
+            /* Gradien pelangi melingkar yang merata */
+            --rainbow-conic: conic-gradient(from 0deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+        }
+
+        body {
+            background-color: #030712;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Ukuran Standar Dimensi Altmetric/PlumX (320px - 350px) */
+        .i-metrics-container {
+            background-color: var(--bg-dark);
+            width: 320px; 
+            padding: 25px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: visible;
+        }
+
+        .header-text {
+            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .header-text span { color: var(--i-blue); }
+
+        /* Wrapper Orbital */
+        .orbital-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Cahaya Pelangi Merata (Aura Luar) */
+        .rainbow-aura {
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            background: var(--rainbow-conic);
+            filter: blur(8px);
+            opacity: 0.7;
+            animation: spin 6s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Lingkaran Utama (Score) */
+        .main-score-circle {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle at 35% 35%, #38bdf8, #0284c7);
+            border-radius: 50%;
+            border: 6px solid #ffffff;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .main-score-circle .label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            margin-bottom: -5px;
+        }
+
+        .main-score-circle .value {
+            font-size: 60px;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        /* Grup Satelit (Garis Vertikal di Kanan agar Tidak Nabrak) */
+        .satellite-group {
+            position: absolute;
+            right: -65px; /* Digeser ke kanan */
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .satellite-orb {
+            background: #ffffff;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .satellite-orb:hover {
+            transform: scale(1.1);
+            border-color: var(--i-blue);
+        }
+
+        .satellite-orb strong { font-size: 15px; color: #1e293b; }
+        .satellite-orb small { font-size: 8px; color: #64748b; text-transform: uppercase; font-weight: 700; }
+
+        /* Badges Section */
+        .badge-footer {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 9px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .scopus { background: #ff7000; }
+        .wos { background: #5e35b1; }
+        .doaj { background: #000; border: 1px solid #444; }
+        .dims { background: #475569; }
+
+        .report-link {
+            display: block;
+            margin-top: 25px;
+            font-size: 11px;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .report-link:hover { color: var(--i-blue); }
+    </style>
+</head>
+<body>
+
+    <div class="i-metrics-container">
+        <div class="header-text"><span>I-METRICS</span> ANALYTICS</div>
+
+        <div class="orbital-wrapper">
+            <div class="rainbow-aura"></div>
+            
+            <div class="main-score-circle">
+                <div class="label">IMPACT SCORE</div>
+                <div class="value">95</div>
+            </div>
+
+            <div class="satellite-group">
+                <div class="satellite-orb">
+                    <strong>73</strong>
+                    <small>Citations</small>
+                </div>
+                <div class="satellite-orb">
+                    <strong>420</strong>
+                    <small>Reads</small>
+                </div>
+                <div class="satellite-orb">
+                    <strong>12</strong>
+                    <small>Shares</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-footer">
+            <span class="tag scopus">SCOPUS</span>
+            <span class="tag wos">WEB OF SCIENCE</span>
+            <span class="tag doaj">DOAJ</span>
+            <span class="tag dims">DIMENSIONS</span>
+        </div>
+
+        <a href="#" class="report-link">View Full Impact Report &rarr;</a>
+    </div>
+
+</body>
+</html>
